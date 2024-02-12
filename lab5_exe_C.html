@@ -217,13 +217,23 @@ Description : DOM Elements.
 				navBar.style.backgroundColor = 'aquamarine';
 
 				// Task 3: Hide the section titled 'What is full-stack?'
-				
+				let section = document.querySelector('article');
+				section.style.display = 'none';
 
 				// Task 4: Create a new <p> element and append it to the 'About Us' section
-
+				let newParagraph = document.createElement("p");
+				let aboutUs = document.querySelector("section p");
+				newParagraph.textContent = "New paragraph test.";
+				aboutUs.appendChild(newParagraph);
 
 				// Task 5: Add placeholders to input elements based on their corresponding label IDs
-
+				let labels = document.querySelectorAll('label');
+				labels.forEach((label) => {
+					labelID = label.getAttribute("for");
+					if (labelID) {
+						label.setAttribute("label") = labelID;
+					}
+				});
 
 				// Task 6: Set the src attribute of the image
 
