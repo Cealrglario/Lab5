@@ -222,32 +222,56 @@ Description : DOM Elements.
 
 				// Task 4: Create a new <p> element and append it to the 'About Us' section
 				let newParagraph = document.createElement("p");
-				let aboutUs = document.querySelector("section p");
-				newParagraph.textContent = "New paragraph test.";
+				let aboutUs = document.querySelector("section");
+				newParagraph.textContent = "This is a new paragraph";
+				newParagraph.style.color = 'red';
 				aboutUs.appendChild(newParagraph);
 
 				// Task 5: Add placeholders to input elements based on their corresponding label IDs
 				let labels = document.querySelectorAll('label');
+
+				function capitalizeWord(word) {
+					return word.charAt(0).toUpperCase() + word.slice(1);
+				}
+
 				labels.forEach((label) => {
-					labelID = label.getAttribute("for");
-					if (labelID) {
-						label.setAttribute("label") = labelID;
-					}
+					let labelID = label.getAttribute("for");
+					let input = document.getElementById(labelID);
+					input.setAttribute("placeholder", capitalizeWord(labelID));
 				});
 
 				// Task 6: Set the src attribute of the image
-
+				let image = document.querySelector("img");
+				image.setAttribute("src", "./images/example.svg");
 
 				// Task 7: Add a new item in the navigation menu
-
+				let newItem = document.createElement("li");
+				let newItemLink = document.createElement("a");
+				newItemLink.setAttribute("href", "#");
+				newItemLink.textContent = "Blog";
+				
+				newItem.appendChild(newItemLink);
+				let navMenu = document.querySelector("ul");
+				navMenu.appendChild(newItem);
 
 				// Task 8: Change the submit button text upon clicking and make it disabled
+				let button = document.querySelector('input[type="button"]')
 
+				button.addEventListener("click", function() {
+					button.value = "Submitted";
+					button.disabled = "true";
+				}); 
 
 				// Task 9: Change the text color of each item in the 'Related Links' to green
-
+				let links = document.querySelectorAll("aside ul li a")
+				links.forEach((link) => {
+					link.style.color = "green";
+				});
+			
 
 				// Task 10: Add a red solid border to the footer
+				let footer = document.querySelector("footer")
+				footer.style.border = "2px solid red";
 			});
 		</script>
 	</body>
